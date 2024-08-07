@@ -1,0 +1,12 @@
+<div class="container">
+  <h1> Restaurant Details </h1>
+
+  <p>Name: <strong><%= @restaurant.name %></strong><p>
+  <p>Address: <strong><%= @restaurant.address %></strong><p>
+  <p>Category: <strong><%= @restaurant.category %></strong><p>
+
+  <%= link_to '< Back', restaurants_path(), class: 'btn btn-primary' %>
+  <%= link_to '✎ Edit', edit_restaurant_path(), class: 'btn btn-light' %>
+  <%= link_to '🗑️ Delete', restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+
+</div>
