@@ -9,14 +9,16 @@
         <div class="card-body">
           <h5 class="card-title"><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
           <p class="card-text">
-            <%= "#{restaurant.category.capitalize!} || #{restaurant.address}" %>
+            <%= "🍽️ #{restaurant.category.capitalize!}" %>
           </p>
-          <%= link_to 'View Details', restaurant_path(restaurant), class: 'btn btn-primary' %>
+          <p class="card-text">
+            <%= "📍 #{restaurant.address}" %>
+          </p>
         </div>
       </div>
     </div>
       <% end %>
   </div>
-
+  <hr>
   <%= link_to 'Add New Restaurant', new_restaurant_path(), class: 'btn btn-primary' %>
 </div>

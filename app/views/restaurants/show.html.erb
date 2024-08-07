@@ -1,12 +1,27 @@
 <div class="container">
-  <h1> Restaurant Details </h1>
+  <h1>Restaurant Details</h1>
 
-  <p>Name: <strong><%= @restaurant.name %></strong><p>
-  <p>Address: <strong><%= @restaurant.address %></strong><p>
-  <p>Category: <strong><%= @restaurant.category %></strong><p>
+  <p><strong>Name: </strong><%= @restaurant.name %><p>
+  <p><strong>Address: </strong><%= @restaurant.address %><p>
+  <p><strong>Category: </strong><%= @restaurant.category %><p>
 
   <%= link_to '< Back', restaurants_path(), class: 'btn btn-primary' %>
   <%= link_to '✎ Edit', edit_restaurant_path(), class: 'btn btn-light' %>
   <%= link_to '🗑️ Delete', restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
 
+
+  <h2>Reviews</h2>
+  <% if @restaurant.reviews.any? %>
+    <% @restaurant.reviews.each do |review| %>
+      <p><strong>Rating: </strong> <%= review.rating %>/5</p>
+      <p><strong>Content: </strong> <%= review.content %></p>
+      <hr>
+    <% end %>
+  <% else %>
+    <p>No reviews yet.</p>
+  <% end %>
+
+  <hr>
+
+  <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-success' %>
 </div>
